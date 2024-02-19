@@ -2,7 +2,7 @@
 Extensão para adicionar qualidade de vida ou melhorar certas páginas na web que foram mal projetadas.
 
 ### Features
-- [ ] Data de envio nas mensagens do Instgram
+- [x] Data de envio nas mensagens do Instagram
 - [ ] Visualizador de thumbnail no YouTube
 
 ### Instalação
