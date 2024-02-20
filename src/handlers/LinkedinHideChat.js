@@ -3,9 +3,9 @@ async function LinkedinHideChat(window) {
         return;
 
     try{
-        let button = await Fn.waitFor(() => document.getElementById("ember116"));
+        let button = await Fn.waitFor(() => document.querySelector(".msg-overlay-bubble-header__controls"));
         await Fn.sleep(500);
-        button.click();
+        button.children[2].click();
     }catch(err){
         console.error(err);
     }
