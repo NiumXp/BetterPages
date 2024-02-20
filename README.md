@@ -4,6 +4,7 @@ Extensão para adicionar qualidade de vida ou melhorar certas páginas na web qu
 ### Features
 - [x] Data de envio nas mensagens do Instagram
 - [ ] Visualizador de thumbnail no YouTube
+- [x] Minimizar chat do Linkedin
 
 ### Instalação
 Clone o repositório do projeto e execute o arquivo de *build* na raiz do projeto da seguinte forma:
