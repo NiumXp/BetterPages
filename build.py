@@ -13,19 +13,27 @@ class Extension:
     def __init__(self, browser: str) -> None:
         self.browser = browser
 
+    @staticmethod
+    def _remove_comments(s: str, /) -> str:
+        return re.sub(r"\s*/\*\*(.|\n)*?\*/", '', s, flags=re.M)
+
     @property
     def handlers(self):
         for name in os.listdir("src/handlers"):
             path = "src/handlers/" + name
             with open(path) as file:
                 data = file.read()
-                data = re.sub(r"/\*\*(.|\n)*\*/", '', data, flags=re.M)
+                data = self._remove_comments(data)
                 yield name, data
 
     @property
     def _content(self) -> str:
         content = "(function(){"
         content += "\n    console.log(\"content.js\");"
+        with open("src/functions.js") as file:
+            data = file.read()
+            data = self._remove_comments(data)
+            content += '\n' + textwrap.indent(data, ' ' * 4)
         content += "\n    let handlers = ["
         for _, handler in self.handlers:
             content += '\n' + textwrap.indent(handler.strip(), ' ' * 8) + ','
